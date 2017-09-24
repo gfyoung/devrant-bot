@@ -5,6 +5,7 @@
 .DS_STORE
 Thumbs.db
 *.log
+package-lock.json
 
 # FOLDERS
 
