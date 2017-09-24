@@ -82,7 +82,9 @@ botkitController.hears(['latest', 'recent', 'newest'], [event.DIRECT_MESSAGE, ev
         bot.reply(message, response);
 
     }).catch((error) => {
-        throw error;
+        const response = 'Oh no! I was unable to get the latest rant :cry:. ' +
+                         'Note that this could be devRant\'s fault :joy:.';
+        bot.reply(message, response + ' (*ERROR: "' + error.toString() + '"*)');
     });
 });
 
@@ -107,7 +109,9 @@ botkitController.hears('rant ([0-9]{4,})', [event.DIRECT_MESSAGE, event.DIRECT_M
         bot.reply(message, response);
 
     }).catch((error) => {
-        throw error;
+        const response = 'Oh no! I was unable to get the requested rant :cry:. ' +
+                         'Note that this could be devRant\'s fault :joy:.';
+        bot.reply(message, response + ' (*ERROR: "' + error.toString() + '"*)');
     });
 });
 
@@ -135,7 +139,9 @@ botkitController.hears(['search (.*)', 'find (.*)', 'get (.*)'], [event.DIRECT_M
         bot.reply(message, response);
 
     }).catch((error) => {
-        throw error;
+        const response = 'Oh no! I was unable to search the requested term :cry:.' +
+                         'Note that this could be devRant\'s fault :joy:.';
+        bot.reply(message, response + ' (*ERROR: "' + error.toString() + '"*)');
     });
 });
 
@@ -154,7 +160,9 @@ botkitController.hears(['surprise', 'random'], [event.DIRECT_MESSAGE, event.DIRE
         bot.reply(message, response);
 
     }).catch((error) => {
-        throw error;
+        const response = 'Oh no! I was unable to surprise you with a random rant :cry:.' +
+                         'Note that this could be devRant\'s fault :joy:.';
+        bot.reply(message, response + ' (*ERROR: "' + error.toString() + '"*)');
     });
 });
 
@@ -176,7 +184,9 @@ botkitController.hears('weekly', [event.DIRECT_MESSAGE, event.DIRECT_MENTION], (
         bot.reply(message, response);
 
     }).catch((error) => {
-        throw error;
+        const response = 'Oh no! I was unable to provide you with a weekly rant :cry:.' +
+                         'Note that this could be devRant\'s fault :joy:.';
+        bot.reply(message, response + ' (*ERROR: "' + error.toString() + '"*)');
     });
 });
 
@@ -201,7 +211,7 @@ botkitController.on('create_bot', (bot, config) => {
                         throw new Error('Unable to start conversation.');
                     }
 
-                    conversation.say('Hello, i am devRant bot, thanks for allowing me to be apart of your slack channel.');
+                    conversation.say('Hello, I am devRant bot. Thanks for allowing me to be apart of your Slack channel.');
                     conversation.say('To get started, `/invite` me to a channel.');
                     conversation.say('If you are unsure of anything, type `help` for a list of commands.');
                 });
